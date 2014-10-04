@@ -1,6 +1,5 @@
 # Databases
 
-// db.go. a basic setup for intializing a database
 ``` go
 package main
 

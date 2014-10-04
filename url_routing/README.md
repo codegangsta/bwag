@@ -1,5 +1,19 @@
 # URL Routing
 
+For some simple applications, the default `http.ServeMux` can take you pretty
+far. If you need more power in how you parse URL enpoints and route them to the
+proper handler, you may need to pull in a third party routing framework. For
+this tutorial, we will use the popular `github.com/gorilla/mux` library as our
+router. 'github.com/gorilla/mux' is a great choice for a router as it has an
+interface that is familiar for `http.ServeMux` users, yet hsa a ton of extra
+features built around the idea of finding, the right http.Handler for the given
+URL path.
+
+In this example, we will create some routing for a RESTful resurce called
+"posts". Below we define mechanisms to view index, show, create, update,
+destroy, and edit posts. Thankfully with `github.com/gorilla/mux`, we don't
+have to do too much copy-pasting to accomplish this.
+
 ``` go
 package main
 
