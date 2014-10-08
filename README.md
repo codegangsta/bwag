@@ -4,7 +4,6 @@ Welcome to **Building Web Apps with Go**! If you are reading this then you have 
 
 Before we get into all the nitty gritty details, let's start with some ground rules:
 
-
 ## Prerequisites
 To keep this tutorial small and focused, I'm assuming that you are prepared in the following ways:
 
@@ -12,6 +11,8 @@ To keep this tutorial small and focused, I'm assuming that you are prepared in t
 2. You have setup a `GOPATH` by following the [How to Write Go Code](https://golang.org/doc/code.html#Organization) tutorial.
 3. You are somewhat familiar with the basics of Go. (The [Go Tour](http://tour.golang.org) is a pretty good place to start)
 4. You have installed all the [required packages](#required-packages)
+5. You have installed the [Heroku Toolbelt](https://toolbelt.heroku.com/)
+6. You have a [Heroku](https://id.heroku.com/signup) account
 
 ## Required Packages
 For the most part we will be using the built in packages from the standard library to build out our web apps. Certain lessons such as Databases, Middleware, URL Routing, and Controllers will require a third party package. Here is a list of all the go packages you will need to install before starting:
