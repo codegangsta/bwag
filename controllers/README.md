@@ -13,7 +13,7 @@ every request. This allows us to avoid use of global variables, state, and
 logic by moving domain-specific logic into it's respective controller
 implementation.
 
-```
+``` go
 package view
 
 import (
