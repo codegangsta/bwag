@@ -88,7 +88,7 @@ func main() {
 }
 ```
 
-All we need to import is the `net/http` package for this to work. Rememeber
+All we need to import is the `net/http` package for this to work. Remember
 that this is all part of the standard library in Go.
 
 Let's write our fileserver code:

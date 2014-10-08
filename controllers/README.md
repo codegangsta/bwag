@@ -11,7 +11,7 @@ In this example we will experiment with the controller pattern using
 `github.com/codegangsta/controller` to construct a new controller instance on
 every request. This allows us to avoid use of global variables, state, and
 logic by moving domain-specific logic into it's respective controller
-implemenation.
+implementation.
 
 ```
 package view
@@ -44,5 +44,5 @@ func (c *ViewController) HTML(code int, name string, opts ...render.HTMLOptions)
 
 ## Exercises
 1. Extend this ViewController implementation to render JSON as well as HTML.
-2. Play with more controller implemenations, get creative.
+2. Play with more controller implementations, get creative.
 3. Create more controllers that embed the ViewController struct.

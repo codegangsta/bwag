@@ -7,7 +7,7 @@ deploying and maintaining web applications.
 I am choosing to deploy our web application to Heroku for the sake of this
 tutorial because in my experience it has been the fastest way to get a web
 application up and running in no time. Remember that the focus of this tutorial
-is how to build web applications in Go and not nessicarily get caught up in all
+is how to build web applications in Go and not necessarily get caught up in all
 of the distraction of provisioning, configuring, deploying, and maintaining the
 machines that our Go code will be run on.
 
@@ -95,7 +95,7 @@ web: deploygo
 ```
 
 Specifically to run Go applications, we need to also specify a `.godir` file to
-tell heroku which dir is infact our package directory.
+tell heroku which dir is in fact our package directory.
 
 ```
 deploygo
@@ -106,7 +106,7 @@ deploygo
 Once all these things in place, Heroku makes it easy to deploy.
 
 
-Initialize the project as a Git respository
+Initialize the project as a Git repository
 ``` bash
 git init
 git add -A

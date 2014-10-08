@@ -44,5 +44,5 @@ func foo(w http.ResponseWriter, r *http.Request) {
 ## Exercises
 
 1. Look through the docs for `text/template` and `html/template` package. Play with the templating language a bit to get a feel for it's goals, strengths, and weaknesses.
-2. In the example we parse the files on every request, which can be a lot of performance overhead. Experiment with parsing the files at the begining of your program and execute them in your `http.Handler` (hint: make use of the `Copy()` method on `html.Template`)
+2. In the example we parse the files on every request, which can be a lot of performance overhead. Experiment with parsing the files at the beginning of your program and execute them in your `http.Handler` (hint: make use of the `Copy()` method on `html.Template`)
 3. Experiment with parsing and using multiple templates.

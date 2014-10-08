@@ -12,10 +12,10 @@ concepts like HTML not relevant for that particular web app.
 
 ## The Go Way
 
-The Go community understands this dillema. Rather than rely on large,
+The Go community understands this dilemma. Rather than rely on large,
 heavyweight frameworks that try to cover all the bases, Go programmers pull in
 the bare necessities to get the job done. This minimalist approach to web
-programming may be offputting at first, but the result of this effort is a much
+programming may be off-putting at first, but the result of this effort is a much
 simpler program in the end.
 
 **Go makes things simple,** it's as easy as that. If we train ourselves to
@@ -24,7 +24,7 @@ align with the *"Go way"* of programming for the web, we will end up with more
 
 ## Power in Simplicity
 
-As we go through the exercises in this book, I think you will be suprised by
+As we go through the exercises in this book, I think you will be surprised by
 how simple some of these programs can be whilst still affording a bunch of
 functionality.
 

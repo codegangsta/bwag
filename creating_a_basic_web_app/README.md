@@ -97,8 +97,7 @@ func GenerateMarkdown(rw http.ResponseWriter, r *http.Request) {
 Our GenerateMarkdown function implements the standard `http.HandlerFunc`
 interface, and renders HTML from a markdown input. In this case it happens to
 be a `r.FormValue("body")`. It is very common to get input from the
-`http.Request` object that the `http.HandlerFunc` recieves as an argument. Some
-other examples of input is the `r.Header' 'r.Body' and `r.URL.
+`http.Request` object that the `http.HandlerFunc` receives as an argument. Some other examples of input is the `r.Header' 'r.Body' and `r.URL.
 
 We finalize the request by writing it out to our `http.ResponseWriter`. Notice
 that we didn't explicitly send a response code. If we write out to the response
@@ -112,10 +111,10 @@ http.ListenAndServe(":8080", nil)
 
 The last bit of this program starts the server, we pass nil as our handler,
 which assumes that the HTTP requests will be handled by the `net/http` packages
-default `http.ServeMux`, which is conficgured using `http.Handle` and
+default `http.ServeMux`, which is configured using `http.Handle` and
 `http.HandleFunc`, respectively.
 
 And that is all you need to be able to generate markdown as a service in Go. It
-is a suprisingly small amount of code for the amount of heavy lifting it does.
+is a surprisingly small amount of code for the amount of heavy lifting it does.
 In the next chapter we will learn how to deploy this application to the web
 using Heroku.
