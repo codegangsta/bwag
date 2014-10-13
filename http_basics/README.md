@@ -98,7 +98,7 @@ http.ListenAndServe(":8080", http.FileServer(http.Dir(".")))
 ```
 
 The `http.ListenAndServe` function is used to start the server, it will bind to
-the address we gave it (`:8080`) and when it receives and HTTP request, it will
+the address we gave it (`:8080`) and when it receives an HTTP request, it will
 hand it off to the `http.Handler` that we supply as the second argument. In our
 case it is the built-in `http.FileServer`.
 
