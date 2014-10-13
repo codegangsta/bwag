@@ -78,7 +78,7 @@ http.HandleFunc("/markdown", GenerateMarkdown)
 http.Handle("/", http.FileServer(http.Dir("public")))
 ```
 
-We are using `the http.HandleFunc` and `http.Handle` methods to define some
+We are using the `http.HandleFunc` and `http.Handle` methods to define some
 simple routing for our application. It is important to note that calling
 `http.Handle` on the "/" pattern will act as a catch-all route, so we define
 that route last. `http.FileServer` returns an `http.Handler` so we use
