@@ -1,7 +1,7 @@
 # HTML Templates
 
 Serving HTML is an important job for some web applications. Go has one of my
-favorite templating languages to date. Not for it's features, but for it's
+favorite templating languages to date. Not for its features, but for its
 simplicity and out of the box security. Rendering HTML templates is almost as
 easy as rendering JSON using the 'html/template' package from the standard
 library.

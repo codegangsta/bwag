@@ -8,8 +8,8 @@ package that makes building and stacking middleware very easy while keeping the
 composable nature of the Go web ecosystem intact.
 
 Negroni comes with some default middleware such as Logging, Error Recovery, and
-Static file serving. So out of the box Negroni will provide you with a lot a
-value without a lot of value or overhead.
+Static file serving. So out of the box Negroni will provide you with a lot of
+value without a lot of overhead.
 
 The example below shows how to use a Negroni stack with the built in middleware
 and how to create your own custom middleware.
