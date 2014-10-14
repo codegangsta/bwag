@@ -1,5 +1,7 @@
 # Controllers
 
+## Warning: This chapter is currently in flux. Examples and referenced packages are subject to change.
+
 Controllers are a fairly familiar topic in other web development communities.
 Since most web developers rally around the mighty net/http interface, not many
 controller implementations have caught on strongly. However, there is great
