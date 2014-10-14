@@ -7,7 +7,7 @@ among the many things your web app *may* need to interact with.
 
 While each one of these things *can be important* in the building of your web
 applications, not every one of them *is important* for any given app. For
-instance, a web API may just use JSON as it's serialization format, thus making
+instance, a web API may just use JSON as its serialization format, thus making
 concepts like HTML not relevant for that particular web app.
 
 ## The Go Way
