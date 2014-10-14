@@ -21,12 +21,12 @@ For the most part we will be using the built in packages from the standard libra
 
 | Name | Import Path |
 | -- | -- |
-| Gorilla Mux | github.com/gorilla/mux |
-| Negroni | github.com/codegangsta/negroni |
-| Controller | github.com/codegangsta/controller |
-| Black Friday | github.com/russross/blackfriday |
-| Render | gopkg.in/unrolled/render.v1 |
-| SQLite3 | github.com/mattn/go-sqlite3 |
+| [Gorilla Mux](https://github.com/gorilla/mux) | github.com/gorilla/mux |
+| [Negroni](https://github.com/codegangsta/negroni) | github.com/codegangsta/negroni |
+| [Controller](https://github.com/codegangsta/controller) | github.com/codegangsta/controller |
+| [Black Friday](https://github.com/russross/blackfriday) | github.com/russross/blackfriday |
+| [Render](https://github.com/unrolled/render/tree/v1) | gopkg.in/unrolled/render.v1 |
+| [SQLite3](https://github.com/mattn/go-sqlite3) | github.com/mattn/go-sqlite3 |
 
 You can install (or update) these packages by running the following command in your console
 
