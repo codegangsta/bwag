@@ -12,7 +12,7 @@ provide.
 In this example we will experiment with the controller pattern using
 `github.com/codegangsta/controller` to construct a new controller instance on
 every request. This allows us to avoid use of global variables, state, and
-logic by moving domain-specific logic into it's respective controller
+logic by moving domain-specific logic into its respective controller
 implementation.
 
 ``` go

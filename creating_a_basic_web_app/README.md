@@ -1,6 +1,6 @@
 # Creating a Basic Web App
 
-Now that we are done going over the basics of http. Let's create a simple but
+Now that we are done going over the basics of http, let's create a simple but
 useful web application in Go.
 
 Pulling from our fileserver program that we implemented last chapter, we will
