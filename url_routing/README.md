@@ -4,7 +4,7 @@ For some simple applications, the default `http.ServeMux` can take you pretty
 far. If you need more power in how you parse URL endpoints and route them to the
 proper handler, you may need to pull in a third party routing framework. For
 this tutorial, we will use the popular `github.com/gorilla/mux` library as our
-router. 'github.com/gorilla/mux' is a great choice for a router as it has an
+router. `github.com/gorilla/mux` is a great choice for a router as it has an
 interface that is familiar for `http.ServeMux` users, yet has a ton of extra
 features built around the idea of finding the right http.Handler for the given
 URL path.
@@ -78,4 +78,4 @@ func PostEditHandler(rw http.ResponseWriter, r *http.Request) {
 
 1. Explore the documentation for `github.com/gorilla/mux`.
 2. Play with the different chain methods for creating filters and subrouters.
-3. Find how well 'github.com/gorilla/mux' plays nicely with existing `http.Handler`'s like `http.FileServer`
+3. Find how well `github.com/gorilla/mux` plays nicely with existing `http.Handler`'s like `http.FileServer`
