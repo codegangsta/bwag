@@ -40,7 +40,7 @@ For starters, we will need a basic HTML form for the markdown input:
 </body>
 ```
 
-Put this HTML into a `index.html` in the "public" folder of our application.
+Put this HTML into an `index.html` in the "public" folder of our application.
 Notice that the form makes an HTTP POST to the "/markdown" endpoint of our
 application. We don't actually handle that route right now, so let's add it.
 

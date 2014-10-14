@@ -5,7 +5,7 @@ put into making the standard library clean, consistent, and easy to use.
 
 Perhaps one of the most important packages for any budding Go web developer is
 the `net/http` package. This package allows you to build HTTP servers in Go
-with it's powerful compositional constructs. Before we start coding, let's do
+with its powerful compositional constructs. Before we start coding, let's do
 an extremely quick overview of HTTP.
 
 ## HTTP Basics
