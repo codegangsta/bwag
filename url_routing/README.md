@@ -78,4 +78,4 @@ func PostEditHandler(rw http.ResponseWriter, r *http.Request) {
 
 1. Explore the documentation for `github.com/gorilla/mux`.
 2. Play with the different chain methods for creating filters and subrouters.
-3. Find how well `github.com/gorilla/mux` plays nicely with existing `http.Handler`'s like `http.FileServer`
+3. Find how well `github.com/gorilla/mux` plays nicely with existing `http.Handler`s like `http.FileServer`
