@@ -13,7 +13,7 @@ func MyHandler(database *sql.DB) http.Handler {
 ```
 
 ## Using `gorilla/context` for request-specific data
-It is pretty often that we need to store an retrieve data that is specific to
+It is pretty often that we need to store and retrieve data that is specific to
 the current HTTP request. Use `gorilla/context` to map values and retrieve them
 later. It contains a global mutex on a map of request objects.
 
