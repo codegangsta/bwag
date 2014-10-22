@@ -1,6 +1,6 @@
 # Creating a Basic Web App
 
-Now that we are done going over the basics of http. Let's create a simple but
+Now that we are done going over the basics of http, let's create a simple but
 useful web application in Go.
 
 Pulling from our fileserver program that we implemented last chapter, we will
@@ -40,7 +40,7 @@ For starters, we will need a basic HTML form for the markdown input:
 </body>
 ```
 
-Put this HTML into a `index.html` in the "public" folder of our application.
+Put this HTML into a file named `index.html` in the "public" folder of our application.
 Notice that the form makes an HTTP POST to the "/markdown" endpoint of our
 application. We don't actually handle that route right now, so let's add it.
 
@@ -83,8 +83,8 @@ simple routing for our application. It is important to note that calling
 `http.Handle` on the "/" pattern will act as a catch-all route, so we define
 that route last. `http.FileServer` returns an `http.Handler` so we use
 `http.Handle` to map a pattern string to a handler. The alternative method,
-`http.HandleFunc` to use an `http.HandlerFunc` instead of and `http.Handler`.
-This can be an easier convenience to think of handling routes via a function
+`http.HandleFunc`, uses an `http.HandlerFunc` instead of an `http.Handler`.
+This may be more convenient, to think of handling routes via a function
 instead of an object.
 
 ``` go
@@ -95,9 +95,11 @@ func GenerateMarkdown(rw http.ResponseWriter, r *http.Request) {
 ```
 
 Our GenerateMarkdown function implements the standard `http.HandlerFunc`
-interface, and renders HTML from a markdown input. In this case it happens to
-be a `r.FormValue("body")`. It is very common to get input from the
-`http.Request` object that the `http.HandlerFunc` receives as an argument. Some other examples of input is the `r.Header` `r.Body` and `r.URL`.
+interface and renders HTML from a form field containing
+markdown-formatted text. In this case, the content is retrieved
+with `r.FormValue("body")`. It is very common to get input from the
+`http.Request` object that the `http.HandlerFunc` receives as an argument.
+Some other examples of input are the `r.Header`, `r.Body`, and `r.URL` members.
 
 We finalize the request by writing it out to our `http.ResponseWriter`. Notice
 that we didn't explicitly send a response code. If we write out to the response

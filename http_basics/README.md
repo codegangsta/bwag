@@ -5,7 +5,7 @@ put into making the standard library clean, consistent, and easy to use.
 
 Perhaps one of the most important packages for any budding Go web developer is
 the `net/http` package. This package allows you to build HTTP servers in Go
-with it's powerful compositional constructs. Before we start coding, let's do
+with its powerful compositional constructs. Before we start coding, let's do
 an extremely quick overview of HTTP.
 
 ## HTTP Basics
@@ -53,7 +53,7 @@ type ResponseWriter interface {
 ## Composing Web Services
 Because much of the `net/http` package is built off of well defined interface
 types, we can (and are expected to) build our web applications with composition
-in mind. Each `http.Handler` implementation can be thought of as it's own web
+in mind. Each `http.Handler` implementation can be thought of as its own web
 server.
 
 Many patterns can be found in that simple but powerful assumption. Throughout

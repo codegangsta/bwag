@@ -95,7 +95,7 @@ web: deploygo
 ```
 
 Specifically to run Go applications, we need to also specify a `.godir` file to
-tell heroku which dir is in fact our package directory.
+tell Heroku which dir is in fact our package directory.
 
 ```
 deploygo
