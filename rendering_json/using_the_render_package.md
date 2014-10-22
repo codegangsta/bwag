@@ -1,9 +1,9 @@
-# Using The render package
+# Using the render package
 
 If you want rendering JSON and HTML to be even simpler, there is the
 `github.com/unrolled/render` package. This package was inspired by the
 `martini-contrib/render` package and is my goto when it comes to rendering data
-for presentation in my web application.
+for presentation in my web applications.
 
 ``` go
 package main

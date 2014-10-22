@@ -40,5 +40,5 @@ func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 
 ## Exercises
 1. Read through the JSON API docs and find out how to rename and ignore fields for JSON serialization.
-2. Instead of using the `json.Marshal`, method. Try using the `json.Encoder` API.
+2. Instead of using the `json.Marshal` method, try using the `json.Encoder` API.
 3. Figure our how to pretty print JSON with the `encoding/json` package.

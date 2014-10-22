@@ -111,7 +111,7 @@ response code via the `rw.WriteHeader()` method.
 http.ListenAndServe(":8080", nil)
 ```
 
-The last bit of this program starts the server, we pass nil as our handler,
+The last bit of this program starts the server, we pass `nil` as our handler,
 which assumes that the HTTP requests will be handled by the `net/http` packages
 default `http.ServeMux`, which is configured using `http.Handle` and
 `http.HandleFunc`, respectively.
