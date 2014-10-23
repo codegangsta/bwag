@@ -1,8 +1,8 @@
 # JSON
 
-JSON is quickly becoming the ubiquitous serialization format for web APIs, so I
-figure JSON would be the most relevant when learning how to build web apps
-using Go. Fortunately, JSON is also very easy to work with in Go. It is
+JSON is quickly becoming the ubiquitous serialization format for web APIs, so
+it may be the most relevant when learning how to build web apps
+using Go. Fortunately, Go makes it simple to work with JSON -- it is
 extremely easy to turn existing Go structs into JSON using the `encoding/json`
 package from the standard library.
 
