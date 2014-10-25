@@ -87,18 +87,18 @@ We need a couple small configuration files to tell Heroku how it should run our
 application. The first one is the `Procfile`, which allows us to define which
 processes should be run for our application. By default, Go will name the
 executable after the containing directory of your main package. For instance,
-if my web application lived in `GOPATH/github.com/codegangtsa/deploygo`, my
+if my web application lived in `GOPATH/github.com/codegangsta/bwag/deployment`, my
 `Procfile` will look like this:
 
 ```
-web: deploygo
+web: deployment
 ```
 
 Specifically to run Go applications, we need to also specify a `.godir` file to
 tell Heroku which dir is in fact our package directory.
 
 ```
-deploygo
+deployment
 ```
 
 ## Deployment
