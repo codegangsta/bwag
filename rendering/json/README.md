@@ -10,31 +10,31 @@ package from the standard library.
 package main
 
 import (
-  "encoding/json"
-  "net/http"
+	"encoding/json"
+	"net/http"
 )
 
-type Profile struct {
-  Name    string
-  Hobbies []string
+type Book struct {
+	Title  string `json:"title"`
+	Author string `json:"author"`
 }
 
 func main() {
-  http.HandleFunc("/", ProfileHandler)
-  http.ListenAndServe(":8080", nil)
+	http.HandleFunc("/", ShowBooks)
+	http.ListenAndServe(":8080", nil)
 }
 
-func ProfileHandler(w http.ResponseWriter, r *http.Request) {
-  profile := Profile{"Alex", []string{"snowboarding", "programming"}}
+func ShowBooks(w http.ResponseWriter, r *http.Request) {
+	book := Book{"Building Web Apps with Go", "Jeremy Saenz"}
 
-  js, err := json.Marshal(profile)
-  if err != nil {
-    http.Error(w, err.Error(), http.StatusInternalServerError)
-    return
-  }
+	js, err := json.Marshal(book)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 
-  w.Header().Set("Content-Type", "application/json")
-  w.Write(js)
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(js)
 }
 ```
 
