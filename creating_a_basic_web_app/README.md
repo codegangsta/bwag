@@ -12,32 +12,31 @@ package.
 For starters, we will need a basic HTML form for the markdown input: 
 
 ``` html
-<head>
-  <link href="/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+<html>
+  <head>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-title">
+        <h1>Markdown Generator</h1>
+        <p class="lead">Generate your markdown with Go</p>
+        <hr />
+      </div>
 
-  <div class="container">
+      <form action="/markdown" method="POST">
+        <div class="form-group">
+          <textarea class="form-control" name="body" cols="30" rows="10"></textarea>
+        </div>
 
-    <div class="page-title">
-      <h1>Markdown Generator</h1>
-      <p class="lead">Generate your markdown with Go</p>
-      <hr />
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary pull-right" />
+        </div>
+      </form>
     </div>
-
-    <form action="/markdown" method="POST">
-      <div class="form-group">
-        <textarea class="form-control" name="body" cols="30" rows="10"></textarea>
-      </div>
-
-      <div class="form-group">
-        <input type="submit" class="btn btn-primary pull-right" />
-      </div>
-    </form>
-  </div>
-
-  <script src="/js/bootstrap.min.js"></script>
-</body>
+    <script src="/js/bootstrap.min.js"></script>
+  </body>
+</html>
 ```
 
 Put this HTML into a file named `index.html` in the "public" folder of our application.
@@ -53,20 +52,20 @@ file looks like this:
 package main
 
 import (
-    "net/http"
+	"net/http"
 
-    "github.com/russross/blackfriday"
+	"github.com/russross/blackfriday"
 )
 
 func main() {
-    http.HandleFunc("/markdown", GenerateMarkdown)
-    http.Handle("/", http.FileServer(http.Dir("public")))
-    http.ListenAndServe(":8080", nil)
+	http.HandleFunc("/markdown", GenerateMarkdown)
+	http.Handle("/", http.FileServer(http.Dir("public")))
+	http.ListenAndServe(":8080", nil)
 }
 
 func GenerateMarkdown(rw http.ResponseWriter, r *http.Request) {
-    markdown := blackfriday.MarkdownCommon([]byte(r.FormValue("body")))
-    rw.Write(markdown)
+	markdown := blackfriday.MarkdownCommon([]byte(r.FormValue("body")))
+	rw.Write(markdown)
 }
 ```
 
