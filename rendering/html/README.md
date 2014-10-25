@@ -4,41 +4,51 @@ Serving HTML is an important job for some web applications. Go has one of my
 favorite templating languages to date. Not for its features, but for its
 simplicity and out of the box security. Rendering HTML templates is almost as
 easy as rendering JSON using the 'html/template' package from the standard
-library.
+library. Here is what the source code for rendering HTML templates looks like:
 
 ``` go
 package main
 
 import (
-  "html/template"
-  "net/http"
-  "path"
+	"html/template"
+	"net/http"
+	"path"
 )
 
-type Profile struct {
-  Name    string
-  Hobbies []string
+type Book struct {
+	Title  string
+	Author string
 }
 
 func main() {
-  http.HandleFunc("/", foo)
-  http.ListenAndServe(":3000", nil)
+	http.HandleFunc("/", ShowBooks)
+	http.ListenAndServe(":8080", nil)
 }
 
-func foo(w http.ResponseWriter, r *http.Request) {
-  profile := Profile{"Alex", []string{"snowboarding", "programming"}}
+func ShowBooks(w http.ResponseWriter, r *http.Request) {
+	book := Book{"Building Web Apps with Go", "Jeremy Saenz"}
 
-  fp := path.Join("templates", "index.html")
-  tmpl, err := template.ParseFiles(fp)
-  if err != nil {
-    http.Error(w, err.Error(), http.StatusInternalServerError)
-    return
-  }
+	fp := path.Join("templates", "index.html")
+	tmpl, err := template.ParseFiles(fp)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 
-  if err := tmpl.Execute(w, profile); err != nil {
-    http.Error(w, err.Error(), http.StatusInternalServerError)
-  }
+	if err := tmpl.Execute(w, book); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
 }
+```
+
+This is the following template we will be using. It should be placed in a
+`templates/index.html` file in the directory your program is run from:
+
+``` html
+<html>
+  <h1>{{ .Title }}</h1>
+  <h3>by {{ .Author }}</h3>
+</html>
 ```
 
 ## Exercises
