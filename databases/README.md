@@ -10,30 +10,48 @@ database.
 package main
 
 import (
-  "database/sql"
+	"database/sql"
+	"fmt"
 	"log"
+	"net/http"
 
 	_ "github.com/mattn/go-sqlite3"
 )
 
-func NewDB() *sql.DB {
-	db, err := sql.Open("sqlite3", "example.sqlite")
-	checkErr(err)
-
-	_, err = db.Exec("create table if not exists posts(title text, body text)")
-	checkErr(err)
-
-	return db
+func main() {
+	db := NewDB()
+	log.Println("Listening on :8080")
+	http.ListenAndServe(":8080", ShowBooks(db))
 }
 
-func checkErr(err error) {
+func ShowBooks(db *sql.DB) http.Handler {
+	return http.HandlerFunc(func(rw http.ResponseWriter, r *http.Request) {
+		var title, author string
+		err := db.QueryRow("select title, author from books").Scan(&title, &author)
+		if err != nil {
+			panic(err)
+		}
+
+		fmt.Fprintf(rw, "The first book is '%s' by '%s'", title, author)
+	})
+}
+
+func NewDB() *sql.DB {
+	db, err := sql.Open("sqlite3", "example.sqlite")
 	if err != nil {
-		log.Fatalln(err)
+		panic(err)
 	}
+
+	_, err = db.Exec("create table if not exists books(title text, author text)")
+	if err != nil {
+		panic(err)
+	}
+
+	return db
 }
 ```
 
 ## Exercises
-1. Now that we have written the code to initialize the database, create some HTTP handlers to add data to the database. Use an html form to POST data to the endpoint and insert it into the sqlite database.
-2. Make use of the `Query` function on our `sql.DB` instance to extract a collection of rows and map them to structs.
+1. Make use of the `Query` function on our `sql.DB` instance to extract a collection of rows and map them to structs.
+2. Add the ability to insert new records into our database by using an HTML form.
 3. `go get github.com/jmoiron/sqlx` and observe the improvements made over the existing database/sql package in the standard library.
