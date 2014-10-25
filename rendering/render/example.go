@@ -1,11 +1,3 @@
-# Using the render package
-
-If you want rendering JSON and HTML to be even simpler, there is the
-`github.com/unrolled/render` package. This package was inspired by the
-`martini-contrib/render` package and is my goto when it comes to rendering data
-for presentation in my web applications.
-
-``` go
 package main
 
 import (
@@ -38,8 +30,3 @@ func main() {
 
 	http.ListenAndServe(":8080", mux)
 }
-```
-
-## Exercises
-1. Have fun playing with all of the options available when calling `render.New()`
-2. Try using the `{{ .yield }}` helper function and a layout with HTML templates.
