@@ -66,7 +66,7 @@ Let's solve a real world problem in 1 line of code.
 
 Most of the time people just need to serve static files. Maybe you have a
 static HTML landing page and just want to serve up some HTML, images, and CSS
-and call it a day. Sure, you could pull in apache or Python's
+and call it a day. Sure, you could pull in Apache or Python's
 `SimpleHTTPServer`, but Apache is too much for this little site and
 `SimpleHTTPServer` is, well, too slow.
 

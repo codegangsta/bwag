@@ -51,6 +51,6 @@ func MyMiddleware(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc
 
 ## Exercises
 
-1. Think of some cool middleware ideas and try to implement them using negroni.
-2. Explore how negroni can be composed with `github.com/gorilla/mux` using the `http.Handler` interface.
-3. Play with creating negroni stacks for certain groups of routes instead of the entire application.
+1. Think of some cool middleware ideas and try to implement them using Negroni.
+2. Explore how Negroni can be composed with `github.com/gorilla/mux` using the `http.Handler` interface.
+3. Play with creating Negroni stacks for certain groups of routes instead of the entire application.

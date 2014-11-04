@@ -12,13 +12,13 @@ of the distraction of provisioning, configuring, deploying, and maintaining the
 machines that our Go code will be run on.
 
 ## Getting setup
-If you don't already have a Heroku account, sign up
-[here](https://id.heroku.com/signup). Signup is quick, easy and free.
+If you don't already have a Heroku account, sign up at
+[id.heroku.com/signup](https://id.heroku.com/signup). It's quick, easy and free.
 
 Application management and configuration is done through the Heroku toolbelt,
 which is a free command line tool maintained by Heroku. We will be using it to
-create our application on Heroku. You can install it
-[here](https://toolbelt.heroku.com/)
+create our application on Heroku. You can get it from
+[toolbelt.heroku.com](https://toolbelt.heroku.com/).
 
 ## Changing the Code
 
