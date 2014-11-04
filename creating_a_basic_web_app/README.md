@@ -39,7 +39,8 @@ For starters, we will need a basic HTML form for the markdown input:
 </html>
 ```
 
-Put this HTML into a file named `index.html` in the "public" folder of our application.
+Put this HTML into a file named `index.html` in the "public" folder of our application
+and the `bootstrap.min.css` from http://getbootstrap.com/ in the "public/css" folder.
 Notice that the form makes an HTTP POST to the "/markdown" endpoint of our
 application. We don't actually handle that route right now, so let's add it.
 
