@@ -22,7 +22,7 @@ If we want our `http.Handler`s to be able access our `render.Render` instance,
 we have a couple options.
 
 **1. Use a global variable:** This isn't too bad for small programs, but when
-the program gets larger it quickly becomes a maintanence nightmare.
+the program gets larger it quickly becomes a maintenance nightmare.
 
 **2. Pass the variable through a closure to the http.Handler: ** This is a
 great idea, and we should be using it most of the time. The implementation ends
@@ -44,14 +44,13 @@ these closurized `http.Handlers` with the same arguments. The way I like to
 clean this up is to write a little base controller implementation that affords
 me a few wins:
 
-1. Allows me to share the dependencies across `http.Handler`s that have similar
-   goals or concepts.
+1. Allows me to share the dependencies across `http.Handler`s that have similar goals or concepts.
 2. Avoids global variables and functions for easy testing/mocking.
 3. Gives me a more centralized and Go-like mechanism for handling errors.
 
 The great part about controllers is that it gives us all these things without
 importing an external package! Most of this functionality comes from clever use
-of the Go featureset, namely Go structs and Embedding. Let's take a look at the
+of the Go feature set, namely Go structs and embedding. Let's take a look at the
 implementation.
 
 ``` go
@@ -67,6 +66,7 @@ type Action func(rw http.ResponseWriter, r *http.Request) error
 // This is our Base Controller
 type AppController struct{}
 
+// The action function helps with error handling in a controller
 func (c *AppController) Action(a Action) http.Handler {
 	return http.HandlerFunc(func(rw http.ResponseWriter, r *http.Request) {
 		if err := a(rw, r); err != nil {
@@ -76,7 +76,36 @@ func (c *AppController) Action(a Action) http.Handler {
 }
 ```
 
+Thats it! That is all the implementation that we need to have the power of
+controllers at our fingertips. All we have left to do is implement an example
+controller:
+
+``` go
+package main
+
+import (
+	"net/http"
+
+	"gopkg.in/unrolled/render.v1"
+)
+
+type MyController struct {
+	AppController
+	*render.Render
+}
+
+func (c *MyController) Index(rw http.ResponseWriter, r *http.Request) error {
+	c.JSON(rw, 200, map[string]string{"Hello": "JSON"})
+	return nil
+}
+
+func main() {
+	c := &MyController{Render: render.New(render.Options{})}
+	http.ListenAndServe(":8080", c.Action(c.Index))
+}
+```
+
 ## Exercises
-1. Extend this ViewController implementation to render JSON as well as HTML.
+1. Extend `MyController` to have multiple actions for different routes in your application.
 2. Play with more controller implementations, get creative.
-3. Create more controllers that embed the ViewController struct.
+3. Override the `Action` method on `MyController` to render a error HTML page.
