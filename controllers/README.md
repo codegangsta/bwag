@@ -1,7 +1,5 @@
 # Controllers
 
-## Warning: This chapter is currently in flux. Examples and referenced packages are subject to change.
-
 Controllers are a fairly familiar topic in other web development communities.
 Since most web developers rally around the mighty net/http interface, not many
 controller implementations have caught on strongly. However, there is great
@@ -9,38 +7,72 @@ benefit in using a controller model. It allows for clean, well defined
 abstractions above and beyond what the net/http handler interface can alone
 provide.
 
-In this example we will experiment with the controller pattern using
-`github.com/codegangsta/controller` to construct a new controller instance on
-every request. This allows us to avoid use of global variables, state, and
-logic by moving domain-specific logic into its respective controller
+## Handler Dependencies
+
+In this example we will experiment with building our own controller
+implementation using some standard features in Go. But first, lets start with
+the problems we are trying to solve. Say we are using the `render` library that
+we talked about in previous chapters:
+
+``` go
+var Render = render.New(render.Options{})
+```
+
+If we want our `http.Handler`s to be able access our `render.Render` instance,
+we have a couple options.
+
+**1. Use a global variable:** This isn't too bad for small programs, but when
+the program gets larger it quickly becomes a maintanence nightmare.
+
+**2. Pass the variable through a closure to the http.Handler: ** This is a
+great idea, and we should be using it most of the time. The implementation ends
+up looking like this:
+
+``` go
+func MyHandler(r *render.Render) http.Handler {
+  return http.HandlerFunc(func(rw http.ResponseWriter, r *http.Request) {
+    // now we can access r
+  })
+}
+```
+
+## Case for Controllers
+
+When your program grows in size, you will start to notice that many of your
+`http.Handler`s will share the same dependencies and you will have a lot of
+these closurized `http.Handlers` with the same arguments. The way I like to
+clean this up is to write a little base controller implementation that affords
+me a few wins:
+
+1. Allows me to share the dependencies across `http.Handler`s that have similar
+   goals or concepts.
+2. Avoids global variables and functions for easy testing/mocking.
+3. Gives me a more centralized and Go-like mechanism for handling errors.
+
+The great part about controllers is that it gives us all these things without
+importing an external package! Most of this functionality comes from clever use
+of the Go featureset, namely Go structs and Embedding. Let's take a look at the
 implementation.
 
 ``` go
-package view
+package main
 
-import (
-	"net/http"
+import "net/http"
 
-	"github.com/codegangsta/controller"
-	"gopkg.in/unrolled/render.v1"
-)
+// Action defines a standard function signature for us to use when creating
+controller actions. A controller action is basically just a method attached to
+a controller.
+type Action func(rw http.ResponseWriter, r *http.Request) error
 
-var Renderer = render.New(render.Options{})
+// This is our Base Controller
+type AppController struct{}
 
-type ViewController struct {
-	controller.Base
-	View     map[string]interface{}
-	renderer *render.Render
-}
-
-func (c *ViewController) Init(rw http.ResponseWriter, r *http.Request) error {
-	c.renderer = Renderer
-	c.View = make(map[string]interface{})
-	return c.Base.Init(rw, r)
-}
-
-func (c *ViewController) HTML(code int, name string, opts ...render.HTMLOptions) {
-	c.renderer.HTML(c.ResponseWriter, code, name, c.View, opts...)
+func (c *AppController) Action(a Action) http.Handler {
+	return http.HandlerFunc(func(rw http.ResponseWriter, r *http.Request) {
+		if err := a(rw, r); err != nil {
+			http.Error(rw, err.Error(), 500)
+		}
+	})
 }
 ```
 
