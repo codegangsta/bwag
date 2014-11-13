@@ -59,8 +59,8 @@ package main
 import "net/http"
 
 // Action defines a standard function signature for us to use when creating
-controller actions. A controller action is basically just a method attached to
-a controller.
+// controller actions. A controller action is basically just a method attached to
+// a controller.
 type Action func(rw http.ResponseWriter, r *http.Request) error
 
 // This is our Base Controller
