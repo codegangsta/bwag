@@ -21,7 +21,7 @@ For the most part we will be using the built in packages from the standard libra
 
 Name | Import Path | Description
 ---- | ----------- | ----------- 
-[Gorilla Mux](https://github.com/gorilla/mux) | github.com/gorilla/mux | A powerful URL router and dispatcher
+[httprouter](https://github.com/julienschmidt/httprouter) | github.com/julienschmidt/httprouter | A high performance HTTP request router that scales well
 [Negroni](https://github.com/codegangsta/negroni) | github.com/codegangsta/negroni | Idiomatic HTTP Middleware
 [Black Friday](https://github.com/russross/blackfriday) | github.com/russross/blackfriday | a markdown processor
 [Render](https://github.com/unrolled/render/tree/v1) | gopkg.in/unrolled/render.v1 | Easy rendering for JSON, XML, and HTML
