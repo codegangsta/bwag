@@ -13,6 +13,7 @@
    * [Using The render package](rendering/render/README.md)
 * [Databases](databases/README.md)
 * [Controllers](controllers/README.md)
+* [Testing](testing/README.md)
 * [Tips and Tricks](tips_and_tricks/README.md)
 * [Moving Forward](moving_forward/README.md)
 
