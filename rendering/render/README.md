@@ -42,4 +42,4 @@ func main() {
 
 ## Exercises
 1. Have fun playing with all of the options available when calling `render.New()`
-2. Try using the `{{ .yield }}` helper function and a layout with HTML templates.
+2. Try using the `.yield` helper function (with the curly braces) and a layout with HTML templates.
