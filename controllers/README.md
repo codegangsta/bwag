@@ -30,7 +30,7 @@ up looking like this:
 
 ``` go
 func MyHandler(r *render.Render) http.Handler {
-  return http.HandlerFunc(func(rw http.ResponseWriter, r *http.Request) {
+  return http.HandlerFunc(func(rw http.ResponseWriter, rq *http.Request) {
     // now we can access r
   })
 }
