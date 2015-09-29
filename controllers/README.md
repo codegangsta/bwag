@@ -18,8 +18,8 @@ we talked about in previous chapters:
 var Render = render.New(render.Options{})
 ```
 
-If we want our `http.Handler`s to be able access our `render.Render` instance,
-we have a couple options.
+If we want our `http.Handler`s to be able to access the `render.Render`
+instance, we have a couple options.
 
 **1. Use a global variable:** This isn't too bad for small programs, but when
 the program gets larger it quickly becomes a maintenance nightmare.
