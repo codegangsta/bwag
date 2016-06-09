@@ -18,6 +18,6 @@ func Test_HelloWorld(t *testing.T) {
 	exp := "Hello World"
 	act := res.Body.String()
 	if exp != act {
-		t.Fatalf("Expected %s gog %s", exp, act)
+		t.Fatalf("Expected %s got %s", exp, act)
 	}
 }
