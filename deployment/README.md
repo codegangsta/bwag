@@ -94,11 +94,12 @@ if my web application lived in `GOPATH/github.com/codegangsta/bwag/deployment`, 
 web: deployment
 ```
 
-Specifically to run Go applications, we need to also specify a `.godir` file to
-tell Heroku which dir is in fact our package directory.
+Heroku recognizes an app as a Go app by the existence of a `vendor.json` file in
+the `vendor` directory located in your application’s root directory.
 
-```
-deployment
+``` bash
+govendor init
+govendor add +external
 ```
 
 ## Deployment
@@ -115,7 +116,7 @@ git commit -m "Initial Commit"
 
 Create your Heroku application (specifying the Go buildpack):
 ``` bash
-heroku create -b https://github.com/kr/heroku-buildpack-go.git
+heroku create
 ```
 
 Push it to Heroku and watch your application be deployed!
