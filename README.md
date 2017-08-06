@@ -20,12 +20,13 @@ To keep this tutorial small and focused, I'm assuming that you are prepared in t
 For the most part we will be using the built in packages from the standard library to build out our web apps. Certain lessons such as Databases, Middleware and URL Routing will require a third party package. Here is a list of all the go packages you will need to install before starting:
 
 Name | Import Path | Description
----- | ----------- | ----------- 
+---- | ----------- | -----------
 [httprouter](https://github.com/julienschmidt/httprouter) | github.com/julienschmidt/httprouter | A high performance HTTP request router that scales well
 [Negroni](https://github.com/codegangsta/negroni) | github.com/codegangsta/negroni | Idiomatic HTTP Middleware
 [Black Friday](https://github.com/russross/blackfriday) | github.com/russross/blackfriday | a markdown processor
 [Render](https://github.com/unrolled/render/tree/v1) | gopkg.in/unrolled/render.v1 | Easy rendering for JSON, XML, and HTML
 [SQLite3](https://github.com/mattn/go-sqlite3) | github.com/mattn/go-sqlite3 | sqlite3 driver for go
+[govendor](https://github.com/kardianos/govendor) | github.com/kardianos/govendor | The Vendor Tool for Go
 
 You can install (or update) these packages by running the following command in your console
 
