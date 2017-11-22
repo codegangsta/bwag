@@ -115,7 +115,7 @@ git commit -m "Initial Commit"
 
 Create your Heroku application (specifying the Go buildpack):
 ``` bash
-heroku create -b https://github.com/kr/heroku-buildpack-go.git
+heroku create -b heroku/go
 ```
 
 Push it to Heroku and watch your application be deployed!
