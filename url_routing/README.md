@@ -72,6 +72,6 @@ func PostEditHandler(rw http.ResponseWriter, r *http.Request, p httprouter.Param
 
 ## Exercises
 
-1. Explore the documentation for `github.com/julienschmidt/httprouter`.
+1. Explore the documentation for [`github.com/julienschmidt/httprouter`](https://github.com/julienschmidt/httprouter).
 2. Find out how well `github.com/julienschmidt/httprouter` plays nicely with existing `http.Handler`s like `http.FileServer`
 3. `httprouter` has a very simple interface. Explore what kind of abstractions can be built on top of this fast router to make building things like RESTful routing easier.
